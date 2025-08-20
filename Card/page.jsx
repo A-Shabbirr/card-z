@@ -1,31 +1,26 @@
 import Image from 'next/image';
 import React from 'react';
-import styles from './circularText.module.css';
 
 const Card = () => {
-    const text = 'Alfatiha, Editor ';
-
     return (
-        <div className="m-4 h-90 relative w-75 rounded-xl flex flex-col items-center justify-center bg-sky-800">
-            <div className={styles['circular-text']}>
-                {[...text].map((char, i) => (
-                    <span
-                        key={i}
-                        style={{ transform: `rotate(${i * 9}deg)` }}
-                    >
-                        {char}
-                    </span>
-                ))}
-            </div>
-            <div className="bg-blue-400 w-30 h-30 rounded-full  flex flex-direction: column items-center justify-center overflow-hidden ">
-                <Image
-                    className="h-48 w-96 object-cover "
-                    src="/nfsmw.png"
-                    alt="desc"
-                    width={500}
-                    height={500}
-                />
-            </div>
+        <div className="h-90 relative w-75 rounded-xl flex flex-col items-center justify-center bg-sky-800 m-5">
+            <svg width="200" height="200" viewBox="0 0 200 200" className="bg-sky-800 rounded-full mt-6">
+                <defs>
+                    <path id="circlePath" d="M 100, 100 m -75, 0 a 75,75 0 1,1 150,0 a 75,75 0 1,1 -150,0" />
+                </defs>
+                <text fontSize="16" fill="white">
+                    <textPath href="#circlePath" startOffset="24%" textAnchor="middle">
+                        Your Your Your Your Your
+                    </textPath>
+                </text>
+            </svg>
+            <Image
+                className="h-35 w-35  object-cover overflow-hidden rounded-full absolute top-15 right-20 "
+                src="/nfsmw.png"
+                alt="desc"
+                width={500}
+                height={500}
+            />
             <div className="p-4">
                 <p className="text-white mt-4 text-center">Best Pizza Ever!</p>
                 <p className="text-white text-center">and top notch service</p>
@@ -36,5 +31,4 @@ const Card = () => {
         </div>
     );
 }
-
 export default Card;
